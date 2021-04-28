@@ -1,0 +1,126 @@
+$text: #cce0ff;
+$accent: #18ff8c;
+$grey: #223e;
+$red: #f009;
+
+.App {
+  text-align: center;
+  height: 100vh;
+  color: $text;
+  margin: 0 auto;
+  width: 800px;
+  * {
+    font-weight: 300;
+  }
+  .accent {
+    color: $accent;
+    font-weight: 500;
+  }
+}
+
+.header {
+  padding: 10px;
+  text-align: center;
+  font-size: calc(20px + 2vmin);
+  border-bottom: 1px solid $text;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  h1, p {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 20px;
+  }
+  input {
+    font-size: calc(20px + 2vmin);
+    width: 200px;
+    background: transparent;
+    color: $text;
+    border: none;
+  }
+}
+
+.body {
+  font-size: calc(12px + 2vmin);
+  label {
+    display: block;
+    padding: 10px;
+  }
+  textarea {
+    width: 100%;
+    height: 120px;
+    background: #282c34;
+    color: white;
+    font-size: calc(10px + 2vmin);
+    border-color: $text;
+    &:focus {
+      outline: $text;
+    }
+  }
+}
+
+.translate {
+  width: 800px;
+  text-align: left;
+  .word {
+    display: inline-block;
+    padding: 2px 10px;
+    padding-right: 0px;
+    margin: 0 2px;
+    background: $grey;
+    &:hover {
+      cursor: pointer;
+    }
+    span.need-translate {
+      color: yellow;
+      padding-left: 5px;
+    }
+    &.untranslated {
+      background: $red;
+    }
+  }
+}
+
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0009;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease;
+  &-content {
+    background-color: $grey;
+    padding: 50px 100px;
+    border: 1px solid $text;
+    h2 {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    input {
+      background: transparent;
+      color: $text;
+      padding: 10px;
+      font-size: calc(10px + 2vmin);
+      border: 1px solid $text;
+      margin-bottom: 30px;
+      &:focus {
+        outline: $text;
+      }
+    }
+  }
+}
