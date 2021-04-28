@@ -1,0 +1,9 @@
+guard 'bundler' do
+  watch('Gemfile')
+end
+
+guard 'rack', port: 8001 do
+  notification :off
+  watch('Gemfile.lock')
+  watch(/.*\.r[b|u]/)
+end
