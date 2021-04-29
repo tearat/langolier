@@ -2,7 +2,7 @@ import './App.scss';
 import { useState, useRef, useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 import cn from 'classnames';
-import { getWords, postWord, updateWord } from './services/api';
+import { getWords, createWord, updateWord } from './services/api';
 import config from './config'
 
 function App() {
@@ -79,7 +79,7 @@ function App() {
     } else {
       // Add a new word
       const newWord = { native: newWordNative.toLowerCase(), foreign: newWordForeign.toLowerCase() }
-      postWord(newWord).then(updateWords)
+      createWord(newWord).then(updateWords)
     }
     clearAndCloseModal()
   }

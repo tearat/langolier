@@ -2,31 +2,40 @@ import axios from 'axios';
 
 const endPoint = 'http://localhost:8001'
 
-const getWords = () => axios.get(`${endPoint}/words`).then(res => res.data)
+const getWords = () => axios.get(`${endPoint}/words`).then(res => {
+  return res.data
+})
 
-const post = ({url, data}) => {
+const post = ({url, data, method}) => {
   return axios({
-    method: 'post',
     url: `${endPoint}${url}`,
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    },
+    method,
     data
   })
 }
 
-const postWord = (word) => {
+const createWord = (word) => {
   const { native, foreign } = word
   return post({
     url: `/words`,
-    data: { native, foreign }
+    data: { native, foreign },
+    method: "POST"
   })
 }
 
 const updateWord = (id, native) => {
   return post({
     url: `/words/${id}`,
-    data: { id, native }
+    data: { native },
+    method: "PUT"
+  })
+}
+
+const deleteWord = (id) => {
+  return post({
+    url: `/words/${id}`,
+    data: { id },
+    method: "DELETE"
   })
 }
 
@@ -46,7 +55,8 @@ const testRequest = () => {
 
 export {
   getWords,
-  postWord,
+  createWord,
   updateWord,
+  deleteWord,
   testRequest
 }
